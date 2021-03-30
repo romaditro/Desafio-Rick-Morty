@@ -1,6 +1,6 @@
-// import '../../assets/css/styles.css'
 import "../../assets/scss/style.scss";
+import Serie from "./Serie"
 
-// import img from "../../assets/img/img1.png";
 
-console.log("dadakjhsdjk");
+const objeto = new Serie(1);
+console.log(objeto);
