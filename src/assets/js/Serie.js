@@ -1,6 +1,15 @@
 class Serie{
-    constructor (id){
-        this.id = id;
+    constructor (nombre, personajesarray){
+        this.nombre = nombre;
+        this.personajesarray = personajesarray;
+    }
+
+    set agregarPersonajes(personaje){
+        this.personajesarray.push(personaje);
+    }
+
+    get getPersonajes(){
+        return this.personajesarray;
     }
 }
 
