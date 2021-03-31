@@ -5,7 +5,7 @@ class Serie{
     }
 
     getPersonajes(){
-        const app = document.getElementById("app");
+        const app = document.getElementById("divCard");
         
         this.personajesarray.forEach(personaje => {
             //console.log(personaje);
