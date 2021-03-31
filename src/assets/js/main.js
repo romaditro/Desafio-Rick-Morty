@@ -1,29 +1,52 @@
+import "regenerator-runtime/runtime.js";
 import "../../assets/scss/style.scss";
 import Serie from "./Serie"
 import Personaje from "./Personaje"
 
 
 const llamarPersonajes = (() => {
-    const urlBase = "https://rickandmortyapi.com/api";
-    // Variable privada que almacene la cantidad de personajes a mostrar.
+    const URL_API = "https://rickandmortyapi.com/api";
+    const PERSONAJES_VISIBLES = 10;
     let cantidadPersonajes = 0;
 
-    const dataPersonajes = async (urlAPI, urlP) => {
-        let arr = [];
-        
+    const dataPersonajes = async (URL_API, character) => {
+        let personajes = [];
+
         try {
-          const req = await fetch(urlAPI + urlP);
-          const data = await req.json();
-          arr = data.results;
+            const req = await fetch(URL_API + character);
+            const data = await req.json();
+            personajes = data.results;
+
+            //console.log(personajes);
         } catch (error) {
-          console.log(
-            `Error en la obtención de los personajes desde la API: ${error}`
-          );
+            console.log(`Error en la obtención de los personajes desde la API: ${error}`);
         } finally {
-          return arr;
+            return personajes;
         }
-    }
+    };
+
+
+    const fnObtenerPersonajes = async() => {
+      const serie = new Serie("Rick and Morty");
+      
+      const resultadosAPI = await dataPersonajes(URL_API, "/character");
+      cantidadPersonajes = resultadosAPI.length;
+  
+      //console.log(resultadosAPI);
+
+      resultadosAPI.forEach(personaje => {
+          const per = new Personaje(personaje.id, personaje.name, personaje.species, personaje.image);
+          //console.log(per);
+          serie.agregarPersonajes(per);
+      });
+
+      serie.getPersonajes();
+    };
+    return {
+      fnObtenerPersonajes
+    };
+
 })();
 
 
-llamarPersonajes.funcionPublica1();
+llamarPersonajes.fnObtenerPersonajes();
