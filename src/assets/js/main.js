@@ -6,7 +6,7 @@ import Personaje from "./Personaje"
 
 const llamarPersonajes = (() => {
     const URL_API = "https://rickandmortyapi.com/api";
-    const PERSONAJES_VISIBLES = 10;
+    //const PERSONAJES_VISIBLES = 10;
     let cantidadPersonajes = 0;
 
     const dataPersonajes = async (URL_API, character) => {
@@ -35,18 +35,38 @@ const llamarPersonajes = (() => {
       //console.log(resultadosAPI);
 
       resultadosAPI.forEach(personaje => {
-          const per = new Personaje(personaje.id, personaje.name, personaje.species, personaje.image);
+          const per = new Personaje(personaje.id, personaje.name, personaje.gender, personaje.origin.name, personaje.location.name, personaje.status, personaje.species, personaje.image);
           //console.log(per);
           serie.agregarPersonajes(per);
       });
 
       serie.getPersonajes();
+
+      serie.getDetallePersonaje();
     };
+
+    const fnBorrarSpinner = () => {
+
+      const divCantidadPersonajes = document.getElementById("cantidadPersonajes");
+      const spinner = document.getElementById("spinner");
+
+      spinner.style.display = "none";
+      divCantidadPersonajes.innerHTML = cantidadPersonajes;
+
+    }
+
     return {
-      fnObtenerPersonajes
+      fnObtenerPersonajes,
+      fnBorrarSpinner
     };
+    
 
 })();
 
 
 llamarPersonajes.fnObtenerPersonajes();
+
+
+setTimeout(() => {
+    llamarPersonajes.fnBorrarSpinner();
+}, 3000);
