@@ -3,15 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="src/assets/img/icon_fc4d5f0453c047471ce76f7d91699207.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>Template</title>
 </head>
 <body>
-  <h1 class="display-1 m-5">
-    prueba Rodrigo
-  </h1>
-
+  <div class="mx-auto w-25 mt-4">
+    <img src="src/assets/img/1200px-Rick_and_Morty.svg.png" alt="Rick and Morty" class="img-fluid">
+  </div>
+  <div class="my-5">
+      <h2 class="text-center mb-5 text-white">Personajes a mostrar: 
+          <span id="cantidadPersonajes" ></span>
+          <div class="spinner-border text-light" role="status">
+              <span class="sr-only">Loading...</span>
+          </div>
+      </h2>
+      <div id="resultados" class="row mx-auto text-center">
+      </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>

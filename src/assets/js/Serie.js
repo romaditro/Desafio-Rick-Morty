@@ -1,5 +1,5 @@
 class Serie{
-    constructor (nombre, personajesarray){
+    constructor (nombre, personajesarray = []){
         this.nombre = nombre;
         this.personajesarray = personajesarray;
     }

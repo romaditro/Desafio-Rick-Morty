@@ -1,17 +1,21 @@
 class Personaje{
-    constructor (id, nombre, especie, imagen){
-        this.id = id;
-        this.nombre = nombre;
+    constructor (id, nombrePersonaje, especie, imagen){
+        const _id = id;
+        const _nombre = nombrePersonaje;
+        
+        this.getId = () => _id;
+        this.getNombre = () => _nombre;
+
         this.especie = especie;
         this.imagen = imagen;
     }
 
     get obtenerID(){
-        return this.id;
+        return this.getId();
     }
 
     get obtenerNombre(){
-        return this.nombre;
+        return this.getNombre();
     }
 }
 
